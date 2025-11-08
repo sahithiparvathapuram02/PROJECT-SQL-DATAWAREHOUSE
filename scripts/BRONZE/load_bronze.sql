@@ -1,6 +1,8 @@
 /*
-DDL SCRIPT: CREATE BRONZE TABLES
-This script creates tables in the bronze schema.
+STORED PROCEDURE: load BRONZE layer
+This stored procedure loads data inTO Bronze schema from .csv files.
+It truncates the bronze table before loading data.
+Uses 'BULK INSERT' to load data from csv files to bronze tables.
 If exists it drops the table.
 */
 EXEC BRONZE.LOAD_BRONZE
