@@ -44,7 +44,8 @@ BEGIN
     from(
     select *,
     ROW_NUMBER() over(partition BY CST_id order bY CST_CREATE_date desc) as flag_last
-    from Bronze.CRM_cust_inFO)t 
+    from Bronze.CRM_cust_inFO
+    where cst_id is not null)t 
     where flag_last=1; 
     SET @end_time=GETDATE();
     PRINT'>>Load duration:'+CAST(DATEDIFF(SECOND, @start_time,@end_time) as NVARCHAR)+'SECONDS';
